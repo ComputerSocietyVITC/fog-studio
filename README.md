@@ -9,13 +9,18 @@ Everything runs on this laptop. No frames, audio or data ever leave it.
 ```text
 git clone https://github.com/ComputerSocietyVITC/fog-studio.git
 cd fog-studio
-python -m venv .venv
-.venv\Scripts\activate            (macOS / Linux: source .venv/bin/activate)
-pip install -r requirements.txt
-python fog_studio.py
 ```
 
-On Windows you can then just double-click `run_fog_studio.bat`. If you start it with a Python that has no MediaPipe, hand tracking is off and a red bar says so.
+Run the setup file. It makes a `.venv` folder, installs everything into it and checks that it all imports:
+
+- **Windows:** double-click `setup.bat`, then double-click `run_fog_studio.bat` to start.
+- **macOS / Linux:** `sh setup.sh`, then `source .venv/bin/activate` and `python fog_studio.py`.
+
+By hand instead: `python -m venv .venv`, activate it, `pip install -r requirements.txt`, `python fog_studio.py`.
+
+**Coming from phase 1?** Read [`NUTSHELL.md`](NUTSHELL.md): everything the finished app adds, file by file.
+
+If you start it with a Python that has no MediaPipe, hand tracking is off and a red bar says so.
 
 - **Opening:** it starts full screen. `--windowed` starts in a window, `--camera 1` uses an external webcam, and `--word "YOUR TEXT"` sets the Reveal game's word.
 - **Hand-tracking models:** they are in `models/` (MediaPipe Tasks API, about 8 MB). If they are missing, hand tracking turns off. The mouse and the motion mode still work.
